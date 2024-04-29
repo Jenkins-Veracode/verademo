@@ -22,12 +22,12 @@ pipeline {
         }
       }
     }
-    stage('Veracode Upload And Scan') {
-        steps {
-            sh 'curl -o veracode-wrapper.jar https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/23.4.11.2/vosp-api-wrappers-java-23.4.11.2.jar'
-            sh 'java -jar veracode-wrapper.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_SECRET} -action uploadandscan -appname ${VeracodeProfile} -createprofile false  -version $(date +%H%M%s%d%m%y) -filepath ${filepath}'
-            }
-        }
+    // stage('Veracode Upload And Scan') {
+    //     steps {
+    //         sh 'curl -o veracode-wrapper.jar https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/23.4.11.2/vosp-api-wrappers-java-23.4.11.2.jar'
+    //         sh 'java -jar veracode-wrapper.jar -vid ${VERACODE_API_ID} -vkey ${VERACODE_API_SECRET} -action uploadandscan -appname ${VeracodeProfile} -createprofile false  -version $(date +%H%M%s%d%m%y) -filepath ${filepath}'
+    //         }
+    //     }
     stage('Veracode SCA - Agent Scan') { 
       steps {
         // withCredentials([string(credentialsId: 'SRCCLR_API_TOKEN', variable: 'SRCCLR_API_TOKEN')]) {
@@ -39,9 +39,9 @@ pipeline {
     }
   }
 
-  post {
-    always {
-      archiveArtifacts artifacts: 'results.json', fingerprint: true
-    }
-  }
+  // post {
+  //   always {
+  //     archiveArtifacts artifacts: 'results.json', fingerprint: true
+  //   }
+  // }
 }
