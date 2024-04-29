@@ -30,8 +30,8 @@ pipeline {
     //     }
     stage('Veracode SCA - Agent Scan') { 
       steps {
-        // withCredentials([string(credentialsId: 'SRCCLR_API_TOKEN', variable: 'SRCCLR_API_TOKEN')]) {
-        withCredentials([string(credentialsId: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDMwMTYyLCJleHAiOjE3MTQzOTM3ODksImF1dGhvcml0aWVzIjoiQUdFTlQiLCJqdGkiOiJjZWViMzM5ZC04ZmZjLTRjNzMtODExMy1kYTQyMmRlNDhmNGYiLCJjbGllbnRfaWQiOiIiLCJzY29wZSI6W119.dytrx2gxzruO9BnXvU4ckCGK-vzSTuwRSZN5F0faqOkLbwWpgPTl480O-oEbvFkdq3Kuz7uO-Md8HiVaVy9R1gFqIGz32o5dE9KxuiuIKpBkxqDpNOb9v5qAzgC6FZffpSRrOca2BXm7WS0_kGZYFMd_hnQA3ARR3jHZyCB_Qps', variable: 'SRCCLR_API_TOKEN')]) {
+        withCredentials([string(credentialsId: 'SRCCLR_API_TOKEN', variable: 'SRCCLR_API_TOKEN')]) {
+        // withCredentials([string(credentialsId: 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDMwMTYyLCJleHAiOjE3MTQzOTM3ODksImF1dGhvcml0aWVzIjoiQUdFTlQiLCJqdGkiOiJjZWViMzM5ZC04ZmZjLTRjNzMtODExMy1kYTQyMmRlNDhmNGYiLCJjbGllbnRfaWQiOiIiLCJzY29wZSI6W119.dytrx2gxzruO9BnXvU4ckCGK-vzSTuwRSZN5F0faqOkLbwWpgPTl480O-oEbvFkdq3Kuz7uO-Md8HiVaVy9R1gFqIGz32o5dE9KxuiuIKpBkxqDpNOb9v5qAzgC6FZffpSRrOca2BXm7WS0_kGZYFMd_hnQA3ARR3jHZyCB_Qps', variable: 'SRCCLR_API_TOKEN')]) {
             // sh 'curl -sSL https://download.sourceclear.com/ci.sh | bash -s scan --update-advisor --uri-as-name || true'
             sh 'curl -sSL https://download.sourceclear.com/ci.sh | sh'
         }
