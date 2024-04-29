@@ -15,13 +15,13 @@ pipeline {
   }
 
   stages {
-    stage('Maven Build') {
-      steps {
-        dir('app') {
-          sh 'mvn clean package'
-        }
-      }
-    }
+    // stage('Maven Build') {
+    //   steps {
+    //     dir('app') {
+    //       sh 'mvn clean package'
+    //     }
+    //   }
+    // }
     // stage('Veracode Upload And Scan') {
     //     steps {
     //         sh 'curl -o veracode-wrapper.jar https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/23.4.11.2/vosp-api-wrappers-java-23.4.11.2.jar'
